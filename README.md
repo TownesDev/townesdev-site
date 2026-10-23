@@ -14,7 +14,7 @@ CMS, and customer-data architecture.
 - TypeScript with strict checking
 - Plain CSS with no UI framework
 - Vitest unit and contract tests
-- Node.js 24
+- Node.js 22, matching the current Vercel runtime
 - No runtime services or secrets
 
 The temporary page and crawler directives are `noindex`/`nofollow` until a future
