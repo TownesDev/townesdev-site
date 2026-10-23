@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TownesDev Site
 
-## Getting Started
+Clean-room foundation for the next TownesDev website.
 
-First, run the development server:
+The currently verified production holding page remains in the legacy
+[`TownesDev/web-app`](https://github.com/TownesDev/web-app) project. This repository
+is intentionally isolated from that application's SaaS, billing, authentication,
+CMS, and customer-data architecture.
+
+## Baseline
+
+- Next.js 16.4.3 App Router
+- React 19.3
+- TypeScript with strict checking
+- Plain CSS with no UI framework
+- Vitest unit and contract tests
+- Node.js 24
+- No runtime services or secrets
+
+The temporary page and crawler directives are `noindex`/`nofollow` until a future
+site is approved for public indexing.
+
+## Commands
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm audit
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Boundaries
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Do not copy the legacy source tree or lockfile into this repository.
+- Do not add accounts, checkout, subscriptions, pricing, forms, Stripe, Sanity,
+  email, CRM, or portal behavior without an approved change record.
+- Do not copy legacy environment variables or secrets.
+- Do not attach `townes.dev` before a separately approved production cutover.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [deployment guardrails](docs/operations/deployment.md) for preview, cutover,
+and rollback rules.
